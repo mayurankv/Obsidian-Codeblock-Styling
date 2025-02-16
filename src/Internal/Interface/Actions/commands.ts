@@ -1,6 +1,6 @@
 import { EditorView } from "@codemirror/view";
 import { MarkdownView, WorkspaceLeaf } from "obsidian";
-import { renderedViewFold } from "src/internal/Decorating/Rendered/fenced";
+import { renderedViewFold } from "src/internal/decorating/Rendered/fenced";
 import { viewDependentCallback } from "src/internal/utils/interface";
 import { manageExternalReferencedFiles } from "src/internal/utils/reference";
 import CodeStylerPlugin from "src/main";
