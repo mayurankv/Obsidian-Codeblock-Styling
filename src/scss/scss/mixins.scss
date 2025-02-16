@@ -1,0 +1,13 @@
+$prefix: "cs-";
+
+@mixin prefixed($name) {
+	.#{$prefix}#{$name} {
+		@content;
+	}
+}
+
+@mixin active {
+  body.cs-plugin {
+    @content;
+  }
+}

@@ -1,8 +1,8 @@
-@use "css/scss/init.scss" as scss;
+@use "scss/scss";
 
-@use "css/fence/init.scss" as fence;
-@use "css/inline/init.scss" as inline;
-@use "css/settings/init.scss" as settings;
-@use "css/other/init.scss" as other;
+@use "scss/fence";
+@use "scss/inline";
+@use "scss/settings";
+@use "scss/other";
 
-@use "css/plugins/init.scss" as plugins;
+@use "scss/plugins";

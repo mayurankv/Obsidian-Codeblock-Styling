@@ -1,0 +1,95 @@
+@use "../scss/mixins";
+
+@include mixins.active {
+	span.cm-formatting.cm-inline-code ~ span.cs-header {
+		border-radius: 0px !important;
+	}
+
+	span.cs-header {
+		display: inline;
+		user-select: none;
+		background-color: --cs-inline-header-background-colour;
+
+		&.cm-inline-code {
+			padding-left: 0.25em; // Obsidian default value
+			padding-right: 0px;
+			border-radius: var(--cs-inline-curvature) 0px 0px var(--cs-inline-curvature) !important;
+		}
+
+		~ span.cm-inline-code:not(.cs-footer) {
+			padding-left: 0px !important;
+			padding-right: 0px !important;
+			border-radius: 0px !important;
+		}
+
+		> span:not(:first-child):not(.cs-separator) {
+			margin-left: 0.5em
+		}
+
+		> span.cs-icon-container {
+			display: inline-block;
+			vertical-align: text-top;
+			width: 1.1em;
+			margin-left: 0.5em;
+		}
+
+		> span.cs-icon-container > img.cs-icon:not([class*="emoji"]) {
+			display: inline;
+			width: var(--cs-inline-header-icon-size);
+			height: var(--cs-inline-header-icon-size);
+			margin: unset;
+			filter: var(--cs-inline-header-icon-gray-scale)
+		}
+
+		span.cs-named-title {
+			background-color: var(--cs-inline-header-named-title-background-colour);
+			color: var(--cs-inline-header-named-title-text-colour);
+			font-weight: var(--cs-inline-header-named-title-font-weight);
+			font-style: var(--cs-inline-header-named-title-font-style);
+			font-family: var(--cs-inline-header-named-title-font-family);
+		}
+
+		span.cs-language-title {
+			background-color: var(--cs-inline-header-language-title-background-colour);
+			color: var(--cs-inline-header-languaage-title-text-colour);
+			font-weight: var(--cs-inline-header-language-title-font-weight);
+			font-style: var(--cs-inline-header-language-title-font-style);
+			font-family: var(--cs-inline-header-language-title-font-family);
+		}
+
+		span.cs-external-reference {
+			background-color: var(--cs-inline-header-external-reference-title-background-colour);
+			color: var(--cs-inline-header-external-reference-title-text-colour);
+			font-weight: var(--cs-inline-header-external-reference-title-font-weight);
+			font-style: var(--cs-inline-header-external-reference-title-font-style);
+			font-family: var(--cs-inline-header-external-reference-title-font-family);
+
+			.cs-external-reference-repository,
+			.cs-external-reference-repository-icon {
+				color: var(--cs-inline-header-external-reference-title-repository-colour);
+			}
+
+			.cs-external-reference-version,
+			.cs-external-reference-version-icon {
+				color: var(--cs-inline-header-external-reference-title-version-colour);
+			}
+
+			.cs-external-reference-timestamp,
+			.cs-external-reference-timestamp-icon {
+				color: var(--cs-inline-header-external-reference-title-timestamp-colour);
+			}
+		}
+
+		span.cs-execute-code-title {
+			background-color: var(--cs-inline-header-execute-code-title-background-colour);
+			color: var(--cs-inline-header-execute-code-title-text-colour);
+			font-weight: var(--cs-inline-header-execute-code-title-font-weight);
+			font-style: var(--cs-inline-header-execute-code-title-font-style);
+			font-family: var(--cs-inline-header-execute-code-title-font-family);
+		}
+
+		span.cs-separator {
+			color: var(--cs-inline-header-separator-background-colour);
+		}
+	}
+}

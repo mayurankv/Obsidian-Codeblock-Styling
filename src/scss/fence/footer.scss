@@ -1,0 +1,76 @@
+@use "../scss/mixins";
+
+@include mixins.active {
+	.cs-pre-parent,
+	.markdown-source-view *:not(.cm-embed-block) > {
+		div.cs-footer {
+			text-align: center;
+			height: var(--size-4-4);
+			// max-height: var(--size-4-4);
+			position: relative;
+			left: 0;
+			// transition-property: max-height;
+			// transition-duration: var(--cs-transition-length-fold);
+			// transition-timing-function: ease-in-out;
+
+			&[data-cs-fold="true"] {
+				// max-height: unset;
+				// padding-bottom: var(--size-4-3);
+			}
+
+			button {
+				height: 100%;
+				opacity: 0;
+				box-shadow: none;
+				background-color: var(--cs-fence-button-inactive-background-colour);
+				color: var(--cs-fence-button-inactive-colour);
+
+				&:hover {
+					background-color: var(--cs-fence-button-hover-background-colour);
+					color: var(--cs-fence-button-hover-colour);
+				}
+
+				&:active {
+					background-color: var(--cs-fence-button-active-background-colour);
+					color: var(--cs-fence-button-active-colour);
+				}
+			}
+				// button {
+				// 	margin-left: var(--size-4-2);
+				// 	padding-left: var(--size-4-2);
+				// 	padding-right: var(--size-4-2);
+				// }
+		}
+	}
+
+	.cs-pre-parent {
+		> pre.cs-pre {
+			> div.cs-footer {
+				grid-row: 3;
+				grid-column: span 2;
+
+				// &::before {
+				// 	content: "";
+				// 	position: absolute;
+				// 	// top: calc(-1 * var(--size-4-3));
+				// 	// left: calc(-1 * calc(var(--size-4-4) - var(--cs-fence-gutter-language-border-size)));
+				// 	// right: calc(-1 * calc(var(--size-4-12) + var(--cs-fence-fade-width)));
+				// 	bottom: 0;
+				// 	background: inherit;
+				// 	z-index: 2;
+				// 	box-shadow: calc(-1 * var(--cs-fence-gutter-language-border-size)) 0 0px var(--cs-language-border-gutter-colour);
+				// }
+			}
+		}
+	}
+
+	.markdown-source-view {
+		div.cm-line:not(.cm-embed-block).cs-line {
+			div.cs-footer {
+				margin-left: calc(-1 * calc(var(--cs-gutter-char-size) + var(--size-4-3) + var(--size-2-1) + var(--size-4-3)));
+				// margin-right: var(--cs-fence-fade-width);
+				// width: calc(100% - var(--cs-fence-fade-width));
+			}
+		}
+	}
+}

@@ -1,0 +1,26 @@
+//TODO: To remove
+@use "../../scss/mixins";
+
+@include mixins.active {
+	//TODO: Testing
+	// --cs-fence-gutter-background-colour: red !important;
+	// --cs-fence-header-background-colour: yellow !important;
+	// --cs-fence-background-colour: blue !important;
+	// --cs-fence-gutter-border-colour: purple !important
+}
+
+// .markdown-source-view div.cs-header button.cs-copy-code-button {
+// 	z-index: 10
+// }
+
+@use "../../scss/mixins";
+
+@include mixins.active {
+	//TODO: To add directly
+	//TODO add: border colours, border sizes, margins and padding and heights and widths
+	--cs-fence-gutter-active-text-colour: var(--code-normal);
+
+	--cs-fence-highlights-active-line-colour: var(--background-modifier-hover);
+	--cs-fence-highlights-default-highlight-colour: var(--text-highlight-bg);
+	--cs-fence-highlights-gradient-highlights-colour-stop: 30%;
+}

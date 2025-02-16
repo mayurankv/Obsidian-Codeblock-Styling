@@ -1,0 +1,82 @@
+@use "../scss/mixins";
+
+@include mixins.active {
+	--cs-language-border-header-colour: var(--cs-fence-header-background-colour);
+	--cs-language-border-separator-colour: var(--cs-fence-header-separator-background-colour);
+	--cs-language-border-gutter-colour: var(--cs-fence-gutter-background-colour);
+
+	.cs-pre-parent {
+		> pre.cs-pre {
+			border-radius: var(--cs-fence-curvature);
+			background-color: var(--cs-fence-background-colour);
+
+			> code.cs-code {
+				opacity: 1;
+				transition-property: max-height, opacity, color;
+				transition-duration: var(--cs-transition-length-fold);
+				transition-timing-function: ease-in-out;
+
+				> div.cs-line {
+					&,
+					* {
+						transition-property: opacity, color, background-color, border;
+						transition-duration: var(--cs-transition-length-fold);
+						transition-timing-function: ease-in-out;
+					}
+
+					// transition-property: opacity, color;
+					// transition-duration: var(--cs-transition-length-fold);
+					// transition-timing-function: ease-in-out;
+
+					> div.cs-line-text {
+						color: var(--cs-fence-text-colour);
+					}
+				}
+			}
+		}
+
+		pre.cs-pre[data-cs-fold="true"] {
+			> code.cs-code {
+				// opacity: 0;
+				// visibility: hidden;
+
+				// div.cs-line,
+				div.cs-line * {
+					color: rgba(0,0,0,0) !important;
+					--cs-fence-gutter-background-colour: var(--cs-fence-background-colour);
+					--cs-fence-gutter-border-colour: var(--cs-fence-background-colour);
+
+					a.external-link {
+						background: none !important;
+					}
+				}
+			}
+		}
+	}
+
+	.markdown-source-view {
+		div.cm-embed-block {
+			&:not(.cm-table-widget):has(> .cs-pre-parent) {
+				border-radius: var(--cs-fence-curvature);
+			}
+		}
+
+		div.HyperMD-codeblock-begin.cs-line,
+		div.HyperMD-codeblock-end.cs-line {
+			--cs-fence-gutter-border-colour: var(--cs-fence-background-colour);
+		}
+
+
+		div.cm-line:not(.cm-embed-block).cs-line {
+  			background: linear-gradient(to right, var(--cs-language-border-gutter-colour) var(--cs-fence-gutter-language-border-size), var(--cs-fence-gutter-background-colour) var(--cs-fence-gutter-language-border-size) calc(var(--size-4-4) + var(--cs-gutter-char-size) + var(--size-4-3)), var(--cs-fence-background-colour) calc(var(--size-4-4) + var(--cs-gutter-char-size) + var(--size-4-3)));
+			color: var(--cs-fence-text-colour);
+
+			font-family: var(--font-monospace);
+			font-size: var(--code-size);
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
+	}
+}

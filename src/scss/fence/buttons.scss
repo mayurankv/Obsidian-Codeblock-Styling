@@ -1,0 +1,165 @@
+@use "../scss/mixins";
+
+@include mixins.active {
+	.cs-pre-parent,
+	.markdown-source-view *:not(.cm-embed-block) > {
+		div.cs-header {
+			&:hover button{
+				opacity: 1;
+			}
+
+			> div.cs-external-reference button {
+				// opacity: 0;
+				box-shadow: none;
+				height: 100%;
+				margin-left: var(--size-4-2);
+				padding-left: var(--size-4-2);
+				padding-right: var(--size-4-2);
+
+				background-color: var(--cs-fence-button-inactive-background-colour);
+				color: var(--cs-fence-button-inactive-colour);
+
+				&:hover {
+					background-color: var(--cs-fence-button-hover-background-colour);
+					color: var(--cs-fence-button-hover-colour);
+				}
+
+				&:active {
+					background-color: var(--cs-fence-button-active-background-colour);
+					color: var(--cs-fence-button-active-colour);
+				}
+			}
+
+			// > button.cs-copy-code-button,
+			> button.cs-edit-code-button {
+  				margin-left: auto;
+			}
+		}
+
+		div.cs-footer button {
+			height: 100%;
+			opacity: 0;
+			box-shadow: none;
+			background-color: var(--cs-fence-button-inactive-background-colour);
+			color: var(--cs-fence-button-inactive-colour);
+
+			&:hover {
+				background-color: var(--cs-fence-button-hover-background-colour);
+				color: var(--cs-fence-button-hover-colour);
+			}
+
+			&:active {
+				background-color: var(--cs-fence-button-active-background-colour);
+				color: var(--cs-fence-button-active-colour);
+			}
+		}
+	}
+
+	div.cs-header[data-cs-fold="true"] button.cs-fold-code-button > svg {
+		transform: rotate(-90deg);
+	}
+
+	div.cs-header,
+	div.cs-footer {
+		button {
+			padding-left: var(--size-4-2);
+			padding-right: var(--size-4-2);
+			height: 100%;
+		}
+
+		button.copy-code-button {
+			display: none;
+		}
+
+		button.cs-edit-code-button,
+		button.cs-copy-code-button,
+		button.cs-fold-code-button {
+			display: block;
+			// position: sticky;
+			// top: 0;
+			// left: calc(100% - 32px);
+			// grid-row: 1;
+			// padding: 0;
+			// margin: 0;
+			// margin-left: var(--size-4-4);
+			// margin-bottom: var(--size-4-2);
+			z-index: 4;
+			opacity: 0;
+
+			background-color: var(--cs-fence-button-inactive-background-colour);
+			color: var(--cs-fence-button-inactive-colour);
+
+			> svg {
+				// position: sticky;
+				// left: 0;
+				z-index: inherit;
+			}
+
+			&:hover {
+				background-color: var(--cs-fence-button-hover-background-colour);
+				color: var(--cs-fence-button-hover-colour);
+			}
+
+			&:active {
+				background-color: var(--cs-fence-button-active-background-colour);
+				color: var(--cs-fence-button-active-colour);
+			}
+		}
+	}
+
+	pre.cs-pre button,
+	div.cm-line:not(.cm-embed-block).cs-line button {
+		transition-property: opacity, background-color, color, transform;
+		transition-duration: var(--cs-transition-length-button);
+		transition-timing-function: ease-in-out;
+		box-shadow: none;
+		opacity: 0;
+
+		& > svg{
+			transition-property: transform;
+			transition-duration: var(--cs-transition-length-button);
+			transition-timing-function: ease-in-out;
+		};
+	};
+
+	pre.cs-pre:hover div button,
+	div.cm-line:not(.cm-embed-block).cs-line.cs-hover button {
+		opacity: 1 !important;
+	};
+
+	.cs-pre-parent {
+		> pre.cs-pre {
+			> div.cs-footer button.cs-fold-code-button {
+				display: inline-flex;
+			}
+
+			&[data-cs-fold="true"] {
+				button.cs-fold-code-button {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.markdown-source-view {
+		div.cm-line:not(.cm-embed-block).cs-line {
+			span.code-block-flair {
+				z-index: 5;
+				display: none;
+			}
+
+			div.cs-footer {
+				button {
+					// opacity: 1;
+					display: inline-flex;
+
+				}
+			}
+
+			button {
+				// opacity: 1;
+				box-shadow: none;
+			}
+		}
+	}
+}

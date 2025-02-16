@@ -1,7 +1,0 @@
-@use "mixins.scss";
-
-@include mixins.active {
-	.cs-hidden {
-		display: none !important;
-	}
-}

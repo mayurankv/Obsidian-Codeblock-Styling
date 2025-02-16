@@ -1,0 +1,18 @@
+div.print {
+	--line-wrapping: pre-wrap !important;
+}
+
+@use "../../scss/mixins";
+
+@include mixins.active {
+	div.print {
+		pre.code-styler-pre {
+			code {
+				max-height: unset !important;
+			}
+			&.code-styler-folded code {
+				display: none !important;
+			}
+		}
+	}
+}

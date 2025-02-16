@@ -1,0 +1,47 @@
+@use "../scss/mixins";
+
+@include mixins.active {
+	span.cs-footer {
+		padding-left: 0.4em !important;
+
+		&.cm-inline-code {
+			padding-left: 0px !important;
+			padding-right: 0.25em; // Obsidian default value
+			border-radius: 0px var(--cs-inline-curvature) var(--cs-inline-curvature) 0px !important;
+		}
+
+		button.cs-copy-code-button {
+			--icon-size: var(--icon-xs);
+			padding: 0.15em;
+			margin-left: var(--size-4-1);
+			background-color: var(--cs-inline-button-inactive-background-colour);
+			box-shadow: none;
+			height: 100%;
+			display: inline-block;
+			color: var(--cs-inline-button-inactive-colour);
+
+			transition: opacity, background-color, color;
+			transition-duration: var(--cs-transition-length-button);
+
+			> svg {
+				display: inline;
+				height: 100%;
+				vertical-align: text-top;
+			}
+
+			&:hover {
+				background-color: var(--cs-inline-button-hover-background-colour);
+				color: var(--cs-inline-button-hover-colour);
+			}
+
+			&:active {
+				background-color: var(--cs-inline-button-active-background-colour);
+				color: var(--cs-inline-button-active-colour);
+			}
+		}
+	}
+
+	// code:not(:hover) span.cs-footer button.cs-copy-code-button {
+	// 	visibility: hidden;
+	// }
+}

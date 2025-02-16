@@ -1,0 +1,58 @@
+.cm-hmd-frontmatter {
+	&,
+	.cm-builtin,
+	.cm-property,
+	.cm-attribute,
+	.cm-type {
+		color: var(--code-function);
+	}
+
+	.cm-inline-code,
+	.cm-math {
+		color: var(--code-normal);
+	}
+	.cm-def,
+	.cm-comment,
+	.cm-meta {
+		color: var(--code-comment);
+	}
+
+	.cm-tag {
+		color: var(--code-tag);
+	}
+
+	.cm-punctuation,
+	.cm-bracket,
+	.cm-hr {
+		color: var(--code-punctuation);
+	}
+
+	.cm-number {
+		color: var(--code-value);
+	}
+
+	.cm-qualifier,
+	.cm-string,
+	.cm-string-2 {
+		color: var(--code-string);
+	}
+
+	.cm-operator {
+		color: var(--code-operator);
+	}
+
+	.cm-link,
+	.cm-variable,
+	.cm-variable-2,
+	.cm-variable-3 {
+		color: var(--code-property);
+	}
+
+	.cm-keyword {
+		color: var(--code-keyword);
+	}
+
+	.cm-atom {
+		color: var(--code-important)
+	}
+}

@@ -15,14 +15,19 @@ export function getLineClasses(
 	lineNumber: number,
 	line: string,
 ): Array<string> {
+	let highlightClasses = Object.entries({ default: fenceCodeParameters.highlights.default, ...fenceCodeParameters.highlights.alternative }).filter(
+		([highlightName, highlights]: [string, Highlights]) => toHighlight(highlights, lineNumber + (fenceCodeParameters.lineNumbers.offset ?? 0), line)
+	).map(
+		([highlightName, highlights]: [string, Highlights]) => `${PREFIX}highlighted-${toKebabCase(highlightName)}`
+	)
+
 	const classList = [
 		PREFIX + "line",
 		...(fenceCodeParameters.language ? [`language-${fenceCodeParameters.language}`] : []),
-		...Object.entries({ default: fenceCodeParameters.highlights.default, ...fenceCodeParameters.highlights.alternative }).filter(
-			([highlightName, highlights]: [string, Highlights]) => toHighlight(highlights, lineNumber + (fenceCodeParameters.lineNumbers.offset ?? 0), line)
-		).map(
-			([highlightName, highlights]: [string, Highlights]) => `${PREFIX}highlighted-${toKebabCase(highlightName)}`
-		),
+		...(highlightClasses.length > 0 ? [
+			...highlightClasses,
+			`${PREFIX}highlighted`,
+		] : []),
 	]
 
 	return classList;

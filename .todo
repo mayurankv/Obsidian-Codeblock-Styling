@@ -10,7 +10,6 @@ Refactor:
 		☐ SettingsTabs
 		☐ On command, use a value to determine whether the blocks are folderd, unfolded or null and set new blocks by that
 			☐ Should be on a page by page basis
-		☐ Colourised Bracket matching and line under to match vs code setup
 	☐ Checks:
 		☐ Check wrapped and active unwrap looks and works ok in live preview
 	☐ Fixes:
@@ -43,7 +42,8 @@ Refactor:
 	☐ Update actions to use https://docs.obsidian.md/Reference/TypeScript+API/Workspace/activeEditor
 
 Next Refactor:
-	☐ Split CSS into fence and inline folders with names that relate directly to what the css does i.e. layout, highlighting, border, spacing, heaer, footer etc.
+	☐ Colourised Bracket matching and line under to match vs code setup
+	☐ Add fence border scss file and make sure all spacing and styling is properly split
 	☐ Make external reference titles link but remain styled
 	☐ Add styles not exposed to style settings or settings for padding and margin settings
 	☐ add default code icon svg based on < > icon and reference code icon svg
