@@ -11,7 +11,7 @@ import { convertSettings } from "./internal/utils/settings";
 import { EXTERNAL_REFERENCE_CACHE, EXTERNAL_REFERENCE_PATH, REFERENCE_CODEBLOCK } from "./internal/constants/reference";
 import { registerCommands } from "./internal/Interface/actions/commands";
 import { loadLanguageIcons, unloadLanguageIcons } from "./resources/icons";
-import { registerRerenderingOnWorkspaceChange, rerenderRenderedView } from "./internal/Interface/View/rendered";
+import { registerRerenderingOnWorkspaceChange, rerenderRenderedView } from "./internal/Interface/view/rendered";
 import { addModes, parseObsidianMarkdown } from "./internal/decorating/LivePreview/codemirror/modes";
 import { applyStyling, removeStyling } from "./internal/decorating/styles";
 import { manageExternalReferencedFiles } from "./internal/utils/reference";
