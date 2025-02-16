@@ -2,7 +2,7 @@ import { MarkdownRenderer } from "obsidian";
 import { ElementContent, Element } from "hast";
 import { fromHtml } from "hast-util-from-html";
 import CodeStylerPlugin from "src/main";
-import { FenceCodeParameters, Highlights, InlineCodeParameters, LinkInfo } from "src/Internal/types/parsing";
+import { FenceCodeParameters, Highlights, InlineCodeParameters, LinkInfo } from "src/internal/types/parsing";
 import { PREFIX } from "../constants/general";
 import { toKebabCase } from "./string";
 import { LANGUAGE_NAMES } from "../constants/parsing";

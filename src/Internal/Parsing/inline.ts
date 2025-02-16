@@ -92,6 +92,12 @@ export function toHighlightInlineCode(
 	return getTheme(plugin).settings.inline.syntaxHighlight && (inlineCodeParameters.language !== null)
 }
 
+export function toParseInlineCode(
+	plugin: CodeStylerPlugin,
+): boolean {
+	return getTheme(plugin).settings.inline.parse
+}
+
 export function splitInlineCodeRaw(
 	inlineCodeRaw: string,
 ): { inlineCodeParametersLine: string | null, inlineCodeContent: string } {

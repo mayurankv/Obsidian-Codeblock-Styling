@@ -1,13 +1,13 @@
 import { MarkdownPostProcessorContext, MarkdownRenderer } from "obsidian";
-import { DECORATED_ATTRIBUTE, TEMPORARY_SOURCEPATH } from "src/Internal/constants/decoration";
-import { CONTENT_ATTRIBUTE, PARAMETERS_ATTRIBUTE } from "src/Internal/constants/detecting";
-import { PREFIX } from "src/Internal/constants/general";
-import { InlineCodeParameters } from "src/Internal/types/parsing";
+import { DECORATED_ATTRIBUTE, TEMPORARY_SOURCEPATH } from "src/internal/constants/decoration";
+import { CONTENT_ATTRIBUTE, PARAMETERS_ATTRIBUTE } from "src/internal/constants/detecting";
+import { PREFIX } from "src/internal/constants/general";
+import { InlineCodeParameters } from "src/internal/types/parsing";
 import CodeStylerPlugin from "src/main";
-import { parseInlineCodeParameters, toDecorateInlineCode, toHighlightInlineCode } from "../../Parsing/inline";
+import { parseInlineCodeParameters, toDecorateInlineCode, toHighlightInlineCode } from "../../parsing/inline";
 import { createFooterElement, createHeaderElement } from "../elements";
 import { codeToHast, codeToHtml, codeToTokens } from 'shiki'
-import { USE_SHIKI } from "src/Internal/constants/settings";
+import { USE_SHIKI } from "src/internal/constants/settings";
 
 export async function renderedInlineCodeDecorating(
 	element: HTMLElement,

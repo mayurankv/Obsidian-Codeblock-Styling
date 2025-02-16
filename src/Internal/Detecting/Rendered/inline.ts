@@ -1,7 +1,7 @@
 import { MarkdownPostProcessorContext } from "obsidian";
-import { CONTENT_ATTRIBUTE, EMPTY_PARAMETERS_ATTRIBUTE, PARAMETERS_ATTRIBUTE } from "src/Internal/constants/detecting";
+import { CONTENT_ATTRIBUTE, EMPTY_PARAMETERS_ATTRIBUTE, PARAMETERS_ATTRIBUTE } from "src/internal/constants/detecting";
 import CodeStylerPlugin from "src/main";
-import { splitInlineCodeRaw } from "../../Parsing/inline";
+import { splitInlineCodeRaw, toParseInlineCode } from "../../parsing/inline";
 import { isUndetectedCodeElement } from "../../utils/detecting";
 
 export async function renderedInlineCodeDetecting(
@@ -9,6 +9,9 @@ export async function renderedInlineCodeDetecting(
 	context: MarkdownPostProcessorContext,
 	plugin: CodeStylerPlugin,
 ): Promise<void> {
+	if (!toParseInlineCode(plugin))
+		return;
+
 	for (const inlineCodeElement of Array.from(element.querySelectorAll(":not(pre) > code")) as Array<HTMLElement>) {
 		const inlineCodeRaw = inlineCodeElement.innerText;
 		const {inlineCodeParametersLine, inlineCodeContent} = splitInlineCodeRaw(inlineCodeRaw);

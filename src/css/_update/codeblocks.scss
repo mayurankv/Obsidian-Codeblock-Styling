@@ -39,8 +39,6 @@ body.cs-plugin {
 	.markdown-source-view {
 		:not(pre.code-styler-pre) > .code-styler-header-container + [class*="code-styler-line"].HyperMD-codeblock-begin {
 			border-top: none !important;
-			border-top-left-radius: 0px !important;
-			border-top-right-radius: 0px !important;
 		}
 		.HyperMD-codeblock[class*='code-styler-line'] {
 			overflow: hidden;
@@ -70,8 +68,6 @@ body.cs-plugin {
 		border-right: var(--code-styler-header-border);
 		border-left: var(--code-styler-header-border);
 		background: linear-gradient(var(--code-styler-header-background-colour) 0%,var(--code-styler-header-background-colour) calc(100% - var(--header-separator-width)), var(--code-styler-header-separator-colour) calc(100% - var(--header-separator-width)), var(--code-styler-header-separator-colour) 100%) var(--language-border-width) bottom/100% border-box no-repeat,var(--language-border-colour) !important;
-		border-top-left-radius: var(--border-radius);
-		border-top-right-radius: var(--border-radius);
 	}
 	pre.code-styler-pre .code-styler-header-container {
 		border-bottom: var(--header-separator-width) solid var(--code-styler-header-separator-colour);
@@ -82,8 +78,6 @@ body.cs-plugin {
 		border-bottom: var(--code-styler-header-border);
 		border-bottom: var(--folded-bottom-border);
 		background: linear-gradient(var(--code-styler-header-background-colour) 0%,var(--code-styler-header-background-colour) 100%) var(--language-border-width) bottom/100% border-box no-repeat,var(--language-border-colour) !important;
-		border-bottom-left-radius: var(--border-radius);
-		border-bottom-right-radius: var(--border-radius);
 	}
 	pre.code-styler-pre.code-styler-folded .code-styler-header-container {
 		border-bottom: var(--folded-bottom-border);
@@ -96,15 +90,10 @@ body.cs-plugin {
 		padding-right: var(--header-spacing);
 		padding-bottom: calc(1em * var(--header-inner-vertical-padding));
 		padding-left: var(--header-spacing);
-		border-radius: var(--border-radius) var(--border-radius) 0px 0px;
 		margin-right: var(--header-spacing);
 		background-color: var(--code-styler-header-language-tag-background-colour);
 		text-align: center;
 		transition: border-radius, padding ease-in-out var(--duration-button);
-	}
-	.markdown-source-view :not(pre.code-styler-pre) > .code-styler-header-container.code-styler-header-folded .code-styler-header-language-tag,
-	pre.code-styler-pre.code-styler-folded .code-styler-header-container .code-styler-header-language-tag {
-		border-radius: var(--border-radius);
 	}
 	.code-styler-header-text,
 	.code-styler-header-external-reference > div,
@@ -132,10 +121,6 @@ body.cs-plugin {
 	}
 	pre.code-styler-pre .code-styler-header-external-reference > button:hover {
 		scale: 1.4;
-	}
-	body .code-styler-header-container:not(:has( div > img.code-styler-icon)) .code-styler-header-language-tag {
-		border-bottom-left-radius: 0 !important;
-		border-top-left-radius: 0 !important;
 	}
 	body .code-styler-header-container:not(:has( .code-styler-header-language-tag)) .code-styler-header-text {
 		padding-left: var(--header-spacing);

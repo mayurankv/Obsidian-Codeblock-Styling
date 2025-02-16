@@ -3,9 +3,9 @@ import { LOCAL_PREFIX } from "../constants/interface";
 import CodeStylerPlugin from "src/main";
 import { EXTERNAL_REFERENCE_CACHE, EXTERNAL_REFERENCE_INFO_SUFFIX, EXTERNAL_REFERENCE_PATH, REFERENCE_CODEBLOCK } from "../constants/reference";
 import { Cache, IdCache, Reference, ReferenceByFile } from "../types/reference";
-import { getLineLimits, parseExternalReference, parseReferenceParameters } from "../Parsing/reference";
+import { getLineLimits, parseExternalReference, parseReferenceParameters } from "../parsing/reference";
 import { getFileContentLines } from "./rendered";
-import { rerenderRenderedView } from "src/Internal/Interface/View/rendered";
+import { rerenderRenderedView } from "src/internal/Interface/View/rendered";
 import { isUrl } from "./parsing";
 import { cleanFenceCodeParametersLine } from "./detecting";
 

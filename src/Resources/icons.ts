@@ -1,4 +1,4 @@
-import { LANGUAGES } from "src/Internal/constants/decoration";
+import { LANGUAGES } from "src/internal/constants/decoration";
 import CodeStylerPlugin from "src/main";
 
 export function loadLanguageIcons(): Record<string, string> {

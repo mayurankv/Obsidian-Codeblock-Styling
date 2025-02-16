@@ -1,6 +1,6 @@
 import { MarkdownPreviewRenderer, Plugin } from "obsidian";
 import { basename } from "path";
-import { getArgs } from "src/External/ExecuteCode/CodeBlockArgs";
+import { getArgs } from "src/external/execute-code/CodeBlockArgs";
 import CodeStylerPlugin from "src/main";
 import { EXECUTE_CODE_SUPPORTED_LANGUAGES } from "../constants/external";
 import { PLUGIN_CODEBLOCK_WHITELIST as BASE_PLUGIN_CODEBLOCK_WHITELIST, FENCE_PARAMETERS_KEY_VALUE, FENCE_PARAMETERS_SHORTHAND } from "../constants/parsing";
@@ -10,6 +10,7 @@ import { FenceCodeParameters, Highlights } from "../types/parsing";
 import { Reference } from "../types/reference";
 import { isLanguageMatched, separateParameters, setTitleAndReference } from "../utils/parsing";
 import { convertBoolean, removeBoundaryQuotes, removeCurlyBraces } from "../utils/string";
+import { getTheme } from "../utils/themes";
 
 export function parseFenceCodeParameters(
 	fenceCodeParametersLine: string,
@@ -363,4 +364,10 @@ export function toDecorateFenceCode(
 		return false
 
 	return true
+}
+
+export function toParseFenceCode(
+	plugin: CodeStylerPlugin,
+): boolean {
+	return getTheme(plugin).settings.fence.parse
 }

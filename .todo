@@ -2,9 +2,15 @@ style live preview
 	fold by clicking and commands
 
 Refactor:
-	☐ Add highlights in css
-	☐ make external reference titles link but remain styled
-	☐ SettingsTabs
+	☐ Features:
+		☐ Make identification of codeblocks split into partial and full so that
+		☐ Make general styling apply to partially detected codeblocks via mix of viewplugins and statefields and make full identification features available via statefield (see https://github.com/mayurankv/Obsidian-Code-Styler/issues/312)
+		☐ Add highlights in css
+		☐ Fold by clicking in live preview and commands for reading and live preview
+		☐ SettingsTabs
+		☐ On command, use a value to determine whether the blocks are folderd, unfolded or null and set new blocks by that
+			☐ Should be on a page by page basis
+		☐ Colourised Bracket matching and line under to match vs code setup
 	☐ Checks:
 		☐ Check wrapped and active unwrap looks and works ok in live preview
 	☐ Fixes:
@@ -14,7 +20,7 @@ Refactor:
 		☐ Cursor disppears before live preview filler elements
 		☐ scroll into view long lines when cursor moves
 		☐ Mouse leaves for hover when focus goes
-		☐ issue with startup reference
+		☐ Issue with startup reference
 		☐ Live Preview selection of lines: right edges of filler elements are selected, shouldn't be though
 
 		Hard fixes:
@@ -37,6 +43,8 @@ Refactor:
 	☐ Update actions to use https://docs.obsidian.md/Reference/TypeScript+API/Workspace/activeEditor
 
 Next Refactor:
+	☐ Split CSS into fence and inline folders with names that relate directly to what the css does i.e. layout, highlighting, border, spacing, heaer, footer etc.
+	☐ Make external reference titles link but remain styled
 	☐ Add styles not exposed to style settings or settings for padding and margin settings
 	☐ add default code icon svg based on < > icon and reference code icon svg
 	☐ add mermaid icon
@@ -58,6 +66,8 @@ Next Refactor:
 	☐ Proper diff notation
 		☐ Set highlight lines using base highlight techniques (overriden by actual highlights)
 	☐ Check reference with no internet
+	☐ Bracket matching like vscode
+	☐ Feature with new codeblock from clipboard which determines the language
 
 Later Refactors:
 	☐ Look into tokenising with textmate tokeniser

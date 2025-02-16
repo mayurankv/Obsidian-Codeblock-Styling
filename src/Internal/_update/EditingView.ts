@@ -1,9 +1,9 @@
 import { EditorState, Extension, Line, Range, RangeSetBuilder, SelectionRange, StateEffect, StateField, Transaction } from "@codemirror/state";
 import { Decoration, DecorationSet, EditorView, ViewUpdate } from "@codemirror/view";
 import { editorEditorField } from "obsidian";
-import { hideFold, unhideFold } from "src/Internal/Decorating/LivePreview/codemirror/stateEffects";
-import { areRangesInteracting, isFileIgnored, isRangeInteracting, isSourceMode } from "src/Internal/Decorating/LivePreview/codemirror/utils";
-import { CodeStylerSettings } from "src/Internal/types/settings";
+import { hideFold, unhideFold } from "src/internal/Decorating/LivePreview/codemirror/stateEffects";
+import { areRangesInteracting, isFileIgnored, isRangeInteracting, isSourceMode } from "src/internal/Decorating/LivePreview/codemirror/utils";
+import { CodeStylerSettings } from "src/internal/types/settings";
 import CodeStylerPlugin from "src/main";
 
 interface SettingsState {

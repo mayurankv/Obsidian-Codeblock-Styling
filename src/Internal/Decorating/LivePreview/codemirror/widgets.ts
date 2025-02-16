@@ -1,13 +1,13 @@
 import { EditorView, WidgetType } from "@codemirror/view";
 import { MarkdownRenderer } from "obsidian";
-import { PREFIX } from "src/Internal/constants/general";
-import { CodeParameters, FenceCodeParameters, InlineCodeParameters, LineParameters } from "src/Internal/types/parsing";
+import { PREFIX } from "src/internal/constants/general";
+import { CodeParameters, FenceCodeParameters, InlineCodeParameters, LineParameters } from "src/internal/types/parsing";
 import { isDeepStrictEqual } from "util";
 import { createFooterElement, createHeaderElement, ignoreActionEvents } from "../../elements";
 import { foldOnClick } from "./actions";
 import CodeStylerPlugin from "src/main";
-import { getLanguageIcon } from "src/Internal/utils/decorating";
-import { getTheme } from "src/Internal/utils/themes";
+import { getLanguageIcon } from "src/internal/utils/decorating";
+import { getTheme } from "src/internal/utils/themes";
 
 export class HeaderWidget extends WidgetType {
 	codeParameters: CodeParameters;

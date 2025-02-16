@@ -1,5 +1,5 @@
 import { MarkdownView, WorkspaceLeaf } from "obsidian";
-import { WORKSPACE_CHANGE_TIMEOUT } from "src/Internal/constants/interface";
+import { WORKSPACE_CHANGE_TIMEOUT } from "src/internal/constants/interface";
 import CodeStylerPlugin from "src/main";
 
 let rerenderTimeout: NodeJS.Timeout = setTimeout(() => { });

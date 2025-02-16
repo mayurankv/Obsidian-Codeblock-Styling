@@ -1,20 +1,24 @@
 import { CachedMetadata, DataAdapter, MarkdownPostProcessorContext, MarkdownSectionInformation, parseLinktext, resolveSubpath, SectionCache, View } from "obsidian";
-import { DETECTING_CONTEXT, PARAMETERS_ATTRIBUTE } from "src/Internal/constants/detecting";
+import { DETECTING_CONTEXT, PARAMETERS_ATTRIBUTE } from "src/internal/constants/detecting";
 import CodeStylerPlugin from "src/main";
 import { unified } from "unified";
 import markdown from 'remark-parse';
 import { visit } from 'unist-util-visit';
 import { cleanFenceCodeParametersLine, isUndetectedCodeElement } from "../../utils/detecting";
-import { SETTINGS_TAB_SOURCEPATH_PREFIX } from "src/Internal/constants/interface";
-import { CodeDetectingContext } from "src/Internal/types/detecting";
-import { getFileContentLines } from "src/Internal/utils/rendered";
-import { PREFIX } from "src/Internal/constants/general";
+import { SETTINGS_TAB_SOURCEPATH_PREFIX } from "src/internal/constants/interface";
+import { CodeDetectingContext } from "src/internal/types/detecting";
+import { getFileContentLines } from "src/internal/utils/rendered";
+import { PREFIX } from "src/internal/constants/general";
+import { toParseFenceCode } from "src/internal/parsing/fenced";
 
 export async function renderedFencedCodeDetecting(
 	element: HTMLElement,
 	context: MarkdownPostProcessorContext,
 	plugin: CodeStylerPlugin,
 ): Promise<void> {
+	if (!toParseFenceCode(plugin))
+		return;
+
 	const view = plugin.app.workspace.getActiveViewOfType(View);
 	const cache = plugin.app.metadataCache.getCache(context.sourcePath)
 	if (!view || !cache)

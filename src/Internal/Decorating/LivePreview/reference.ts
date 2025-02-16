@@ -1,7 +1,7 @@
 import { EditorView, PluginValue, ViewPlugin, ViewUpdate } from "@codemirror/view";
 import { editorInfoField } from "obsidian";
-import { PREFIX } from "src/Internal/constants/general";
-import { addReferenceSyntaxHighlight } from "src/Internal/Decorating/LivePreview/codemirror/modes";
+import { PREFIX } from "src/internal/constants/general";
+import { addReferenceSyntaxHighlight } from "src/internal/Decorating/LivePreview/codemirror/modes";
 import CodeStylerPlugin from "src/main";
 
 class ReferenceModeViewPlugin implements PluginValue {

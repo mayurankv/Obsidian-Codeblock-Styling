@@ -108,6 +108,7 @@ interface HeaderSettings {
 }
 
 interface CodeSettings {
+	parse: boolean;
 	syntaxHighlight: boolean;
 	header: HeaderSettings;
 }

@@ -1,4 +1,4 @@
-import { PARAMETERS_ATTRIBUTE } from "src/Internal/constants/detecting";
+import { PARAMETERS_ATTRIBUTE } from "src/internal/constants/detecting";
 export function cleanFenceCodeParametersLine(
 	fenceCodeParametersLine: string,
 ): string {

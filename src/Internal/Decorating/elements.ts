@@ -5,7 +5,7 @@ import { getLanguageIcon, getLanguageName } from "../utils/decorating";
 import { FOLD_ATTRIBUTE, FOLD_PLACEHOLDER, GIT_ICONS, SITE_ICONS, STAMP_ICON, UPDATE_ICON } from "../constants/decoration";
 import { editorLivePreviewField, MarkdownPostProcessorContext, MarkdownRenderer, MarkdownView, Notice, setIcon } from "obsidian";
 import { isUrl } from "../utils/parsing";
-import { rerenderCodeElement } from "src/Internal/Interface/Actions/clicks";
+import { rerenderCodeElement } from "src/internal/Interface/actions/clicks";
 import { updateExternalReference } from "../utils/reference";
 import { Reference } from "../types/reference";
 import { getTheme } from "../utils/themes";
@@ -512,7 +512,7 @@ async function foldFence(
 ): Promise<void> {
 	await viewDependentCallback(
 		plugin,
-		(view: MarkdownView, plugin: CodeStylerPlugin) => {
+		(view: MarkdownView, plugin: CodeStylerPlugin) => new Promise( _ => {
 			const fencePreElement = triggerElement.closest("pre.cs-pre") as HTMLElement | null
 			if (!fencePreElement || !(fencePreElement.tagName.toLowerCase() === "pre"))
 				return false
@@ -520,8 +520,8 @@ async function foldFence(
 			renderedFoldFence(fencePreElement)
 
 			return true
-		},
-		(view: EditorView, plugin: CodeStylerPlugin) => {
+		}),
+		(view: EditorView, plugin: CodeStylerPlugin) => new Promise( _ => {
 			const parentElement = (triggerElement.closest(`.${PREFIX}header`) ?? triggerElement.closest(`.${PREFIX}footer`))
 			if (!parentElement)
 				return
@@ -534,7 +534,7 @@ async function foldFence(
 			});
 			console.log("Fold live preview should work but need to do recieving of effects")
 			// view.requestMeasure(); //TODO: needed?
-		},
+		}),
 	)
 }
 

@@ -1,7 +1,7 @@
 
 import { Range, StateEffect, StateEffectType } from "@codemirror/state";
 import { Decoration } from "@codemirror/view";
-import { AnyRange } from "src/Internal/types/decoration";
+import { AnyRange } from "src/internal/types/decoration";
 
 export const visualStateUpdate: StateEffectType<boolean> = StateEffect.define();
 

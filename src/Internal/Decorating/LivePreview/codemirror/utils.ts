@@ -3,13 +3,13 @@ import { EditorState, Range, RangeSet, RangeValue, SelectionRange, StateField, T
 import { Decoration, DecorationSet, EditorView, ViewUpdate } from "@codemirror/view";
 import { SyntaxNodeRef } from "@lezer/common";
 import { editorInfoField, editorLivePreviewField, livePreviewState } from "obsidian";
-import { PREFIX } from "src/Internal/constants/general";
-import { LinkInfo } from "src/Internal/types/parsing";
-import { parseLinks } from "src/Internal/utils/parsing";
+import { PREFIX } from "src/internal/constants/general";
+import { LinkInfo } from "src/internal/types/parsing";
+import { parseLinks } from "src/internal/utils/parsing";
 import { CommentLinkWidget } from "./widgets";
 import CodeStylerPlugin from "src/main";
 import { fenceScroll, visualStateUpdate } from "./stateEffects";
-import { AnyRange, BaseRange, FenceInfo } from "src/Internal/types/decoration";
+import { AnyRange, BaseRange, FenceInfo } from "src/internal/types/decoration";
 import { RangeNumber } from "./ranges";
 
 export function createViewUpdater() {

@@ -2,19 +2,19 @@ import { ElementContent } from "hast";
 import { fromHtml } from "hast-util-from-html";
 import { toHtml } from "hast-util-to-html";
 import { MarkdownPostProcessorContext, sanitizeHTMLToDom } from "obsidian";
-import { DECORATED_ATTRIBUTE, DEFAULT_FOLD_ATTRIBUTE, FOLD_ATTRIBUTE, WRAP_ATTRIBUTE } from "src/Internal/constants/decoration";
-import { DETECTING_CONTEXT, PARAMETERS_ATTRIBUTE } from "src/Internal/constants/detecting";
-import { PREFIX } from "src/Internal/constants/general";
-import { CodeDetectingContext } from "src/Internal/types/detecting";
-import { FenceCodeParameters } from "src/Internal/types/parsing";
+import { DECORATED_ATTRIBUTE, DEFAULT_FOLD_ATTRIBUTE, FOLD_ATTRIBUTE, WRAP_ATTRIBUTE } from "src/internal/constants/decoration";
+import { DETECTING_CONTEXT, PARAMETERS_ATTRIBUTE } from "src/internal/constants/detecting";
+import { PREFIX } from "src/internal/constants/general";
+import { CodeDetectingContext } from "src/internal/types/detecting";
+import { FenceCodeParameters } from "src/internal/types/parsing";
 import CodeStylerPlugin from "src/main";
 import { visitParents } from "unist-util-visit-parents";
-import { parseFenceCodeParameters, referenceAdjustParameters, toDecorateFenceCode } from "../../Parsing/fenced";
+import { parseFenceCodeParameters, referenceAdjustParameters, toDecorateFenceCode } from "../../parsing/fenced";
 import { convertCommentLinks, getIndentation, getLineClasses } from "../../utils/decorating";
 import { createFooterElement, createHeaderElement } from "../elements";
-import { BUTTON_TIMEOUT, BUTTON_TRANSITION, FOLD_TRANSITION } from "src/Internal/constants/interface";
-import { convertBoolean } from "src/Internal/utils/string";
-import { animateIconChange, copyButton, toggleFoldIcon } from "src/Internal/utils/elements";
+import { BUTTON_TIMEOUT, BUTTON_TRANSITION, FOLD_TRANSITION } from "src/internal/constants/interface";
+import { convertBoolean } from "src/internal/utils/string";
+import { animateIconChange, copyButton, toggleFoldIcon } from "src/internal/utils/elements";
 
 export async function renderedFencedCodeDecorating(
 	element: HTMLElement,

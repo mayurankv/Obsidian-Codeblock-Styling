@@ -2,9 +2,9 @@ import { syntaxTree } from "@codemirror/language";
 import { EditorState, Range, RangeSetBuilder } from "@codemirror/state";
 import { Decoration, DecorationSet, EditorView } from "@codemirror/view";
 import { SyntaxNodeRef } from "@lezer/common";
-import { getInlineDelimiterSize, isFileIgnored } from "src/Internal/Decorating/LivePreview/codemirror/utils";
-import { parseInlineCodeParameters, splitInlineCodeRaw } from "src/Internal/Parsing/inline";
-import { InlineCodeInfo } from "src/Internal/types/detecting";
+import { getInlineDelimiterSize, isFileIgnored } from "src/internal/Decorating/LivePreview/codemirror/utils";
+import { parseInlineCodeParameters, splitInlineCodeRaw } from "src/internal/parsing/inline";
+import { InlineCodeInfo } from "src/internal/types/detecting";
 import CodeStylerPlugin from "src/main";
 
 export function getInlineCodeInfo(

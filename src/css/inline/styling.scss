@@ -1,0 +1,37 @@
+body.cs-plugin {
+	.markdown-rendered :not(pre) > code:not([class*="blur"]) {
+		border-radius: var(--cs-inline-curvature);
+		color: var(--cs-inline-text-colour);
+		background-color: var(--cs-inline-background-colour);
+	}
+
+	// Overwrite Obsidian Defaults
+	.cm-s-obsidian span.cm-inline-code {
+		color: var(--cs-inline-text-colour);
+		background-color: var(--cs-inline-background-colour);
+
+		span.cm-inline-code {
+			&.cm-hmd-indented-code {
+				background-color: transparent;
+			}
+
+			&:not(.cm-formatting):not(.cm-hmd-indented-code):not(.obsidian-search-match-highlight) {
+				background-color: var(--cs-inline-background-colour);
+			}
+		}
+
+		&:not(.cm-formatting) {
+			border-radius: var(--cs-inline-curvature);
+		}
+
+		&.cm-formatting {
+			border-start-start-radius: var(--cs-inline-curvature);
+			border-end-start-radius: var(--cs-inline-curvature);
+		}
+
+		&:not(.cm-formatting) + .cm-formatting.cm-inline-code {
+			border-start-end-radius: var(--cs-inline-curvature);
+			border-end-end-radius: var(--cs-inline-curvature);
+		}
+	}
+}

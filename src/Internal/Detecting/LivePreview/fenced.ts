@@ -1,8 +1,8 @@
 import { EditorState } from "@codemirror/state";
 import { SyntaxNodeRef } from "@lezer/common";
-import { parseFenceCodeParameters, toDecorateFenceCode } from "src/Internal/Parsing/fenced";
-import { FenceInfo } from "src/Internal/types/decoration";
-import { cleanFenceCodeParametersLine } from "src/Internal/utils/detecting";
+import { parseFenceCodeParameters, toDecorateFenceCode } from "src/internal/parsing/fenced";
+import { FenceInfo } from "src/internal/types/decoration";
+import { cleanFenceCodeParametersLine } from "src/internal/utils/detecting";
 import CodeStylerPlugin from "src/main";
 
 export function updateFenceInfo(

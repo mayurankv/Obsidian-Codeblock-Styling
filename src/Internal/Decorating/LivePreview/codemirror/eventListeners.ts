@@ -3,11 +3,11 @@ import { EditorView } from "@codemirror/view";
 import { MarkdownView } from "obsidian";
 import CodeStylerPlugin from "src/main";
 import { fenceScroll } from "./stateEffects";
-import { HOVER_TIMEOUT, SCROLL_TIMEOUT } from "src/Internal/constants/interface";
+import { HOVER_TIMEOUT, SCROLL_TIMEOUT } from "src/internal/constants/interface";
 import { areRangesInteracting, isRangeInteracting, lineDOMatPos } from "./utils";
-import { SKIP_ATTRIBUTE } from "src/Internal/constants/detecting";
-import { getCodeblockLines } from "src/Internal/utils/elements";
-import { PREFIX } from "src/Internal/constants/general";
+import { SKIP_ATTRIBUTE } from "src/internal/constants/detecting";
+import { getCodeblockLines } from "src/internal/utils/elements";
+import { PREFIX } from "src/internal/constants/general";
 
 let scrollTimeout: NodeJS.Timeout = setTimeout(() => { });
 let reset: boolean = true

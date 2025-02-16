@@ -120,6 +120,7 @@ const HEADER_DISPLAY_SETTINGS = {
 
 export const THEME_DEFAULT_SETTINGS: CodeStylerThemeSettings = {
 	fence: {
+		parse: true,
 		syntaxHighlight: true,
 		header: {
 			display: HEADER_DISPLAY_SETTINGS,
@@ -136,6 +137,7 @@ export const THEME_DEFAULT_SETTINGS: CodeStylerThemeSettings = {
 		},
 	},
 	inline: {
+		parse: true,
 		syntaxHighlight: true,
 		header: {
 			display: HEADER_DISPLAY_SETTINGS,

@@ -1,6 +1,6 @@
 import { MarkdownPostProcessorContext, MarkdownRenderer, MarkdownSectionInformation } from "obsidian";
 import CodeStylerPlugin from "src/main";
-import { applyStandaloneFencedDetecting } from "../../Detecting/Rendered/fenced";
+import { applyStandaloneFencedDetecting } from "../../detecting/Rendered/fenced";
 import { PREFIX } from "../../constants/general";
 import { REFERENCE_ATTRIBUTE } from "../../constants/reference";
 import { Reference } from "../../types/reference";

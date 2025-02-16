@@ -427,6 +427,18 @@ body.cs-plugin {
 		opacity: 1 !important;
 	};
 
+	div.cm-line:not(.cm-embed-block):not(.HyperMD-codeblock-begin).cs-line.cs-highlighted-default::after {
+		display: inline-block;
+		position: sticky;
+		width: 100%;
+		// width: var(--size-4-3);
+		// left: 100%;
+		background: linear-gradient(to right, yellow, var(--cs-fence-highlights-gradient-highlights-colour-stop), yellow);
+		top: 0;
+		bottom: 0;
+		height: calc(1em * var(--line-height-normal));
+		margin-bottom: calc(-1 * (var(--line-height-normal) - 1) * 1em);
+	}
 
 	.cs-pre-parent {
 		> pre.cs-pre {
@@ -561,6 +573,10 @@ body.cs-plugin {
 					color: rgba(0,0,0,0) !important;
 					--cs-fence-gutter-background-colour: var(--cs-fence-background-colour);
 					--cs-fence-gutter-border-colour: var(--cs-fence-background-colour);
+
+					a.external-link {
+						background: none !important;
+					}
 				}
 			}
 

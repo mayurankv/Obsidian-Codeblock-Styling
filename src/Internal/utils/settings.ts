@@ -33,6 +33,28 @@ export function convertStylesToVars(
 	return styleString
 }
 
+export function addHighlightStyles(
+	plugin: CodeStylerPlugin,
+	mode: "light" | "dark",
+): string {
+	const styles = getThemeStyles(plugin, mode)
+
+	let styleString = ""
+
+	styleString += `body.cs-plugin.theme-${mode}{\n`;
+
+	styleString += `div.cm-line:not(.cm-embed-block):not(.HyperMD-codeblock-begin).cs-line.cs-highlighted-default::after {
+		content: "";
+		// --cs-fence-gutter-background-colour: var(--cs-fence-highlights-default-highlight-colour);
+		// --cs-fence-gutter-border-colour: var(--cs-fence-highlights-default-highlight-colour);
+		// --cs-fence-background-colour: var(--cs-fence-highlights-default-highlight-colour);
+	};`
+
+	styleString += "}";
+
+	return styleString
+}
+
 export function addLanguageColourVars(
 	plugin: CodeStylerPlugin,
 ) {

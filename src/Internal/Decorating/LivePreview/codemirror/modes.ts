@@ -1,4 +1,4 @@
-import { isUrl } from "src/Internal/utils/parsing";
+import { isUrl } from "src/internal/utils/parsing";
 
 const MODES = [
 	"reference",

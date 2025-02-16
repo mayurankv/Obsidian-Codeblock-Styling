@@ -1,14 +1,14 @@
 import { EditorState, Extension, Range, RangeSetBuilder, StateField, Transaction } from "@codemirror/state";
 import { Decoration, DecorationSet, EditorView, PluginValue, ViewPlugin, ViewUpdate } from "@codemirror/view";
 import { editorInfoField } from "obsidian";
-import { PREFIX } from "src/Internal/constants/general";
-import { toDecorateInlineCode, toHighlightInlineCode } from "src/Internal/Parsing/inline";
-import { InlineCodeInfo } from "src/Internal/types/detecting";
+import { PREFIX } from "src/internal/constants/general";
+import { toDecorateInlineCode, toHighlightInlineCode, toParseInlineCode } from "src/internal/parsing/inline";
+import { InlineCodeInfo } from "src/internal/types/detecting";
 import CodeStylerPlugin from "src/main";
 import { areRangesInteracting, getCommentDecorations, getStateFieldDecorations, getStateFieldsViewDecorations, isFileIgnored, updateStateField, updateViewPlugin } from "./codemirror/utils";
 import { FooterWidget, HeaderWidget } from "./codemirror/widgets";
 import { syntaxTree } from "@codemirror/language";
-import { getInlineCodeInfo } from "src/Internal/Detecting/LivePreview/inline";
+import { getInlineCodeInfo } from "src/internal/detecting/LivePreview/inline";
 
 export function getInlineCodeMirrorExtensions(
 	plugin: CodeStylerPlugin,
@@ -132,7 +132,7 @@ function buildInlineCodeDecorations(
 	value: DecorationSet,
 	plugin: CodeStylerPlugin,
 ): DecorationSet {
-	if (isFileIgnored(state))
+	if (isFileIgnored(state) || !toParseInlineCode(plugin))
 		return Decoration.none;
 
 	let allDecorations: Array<Range<Decoration>> = [];
@@ -159,7 +159,7 @@ function buildInlineDecoration(
 	if (!inlineCodeInfo || !toDecorateInlineCode(inlineCodeInfo.parameters.value, inlineCodeInfo.content.value))
 		return []
 
-	let decorations: Array<Range<Decoration>> = []
+	const decorations: Array<Range<Decoration>> = []
 
 	if (inlineCodeInfo.parameters.from < inlineCodeInfo.parameters.to)
 		decorations.push({
@@ -171,8 +171,7 @@ function buildInlineDecoration(
 		});
 
 	if (toHighlightInlineCode(inlineCodeInfo.parameters.value, plugin))
-		decorations = [
-			...decorations,
+		decorations.push(
 			...inlineSyntaxHighlight(
 				state,
 				inlineCodeInfo.parameters.value.language,
@@ -180,7 +179,7 @@ function buildInlineDecoration(
 				inlineCodeInfo.parameters.to,
 				plugin,
 			),
-		]
+		)
 
 	decorations.push({
 		from: inlineCodeInfo.parameters.from,

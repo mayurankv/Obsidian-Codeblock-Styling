@@ -3,18 +3,19 @@ import { EditorState, Extension, Range, RangeSet, StateEffect, StateField, Trans
 import { Decoration, DecorationSet, EditorView, PluginValue, ViewPlugin, ViewUpdate } from "@codemirror/view";
 import { SyntaxNodeRef } from "@lezer/common";
 import { editorInfoField } from "obsidian";
-import { isFenceComment, isFenceEnd, isFenceLine, isFenceStart, updateFenceInfo } from "src/Internal/Detecting/LivePreview/fenced";
-import { FenceInfo } from "src/Internal/types/decoration";
-import { getLineClasses } from "src/Internal/utils/decorating";
+import { isFenceComment, isFenceEnd, isFenceLine, isFenceStart, updateFenceInfo } from "src/internal/detecting/LivePreview/fenced";
+import { FenceInfo } from "src/internal/types/decoration";
+import { getLineClasses } from "src/internal/utils/decorating";
 import CodeStylerPlugin from "src/main";
 import { hoverListener, scrollListener, setScroll } from "./codemirror/eventListeners";
 import { getCommentDecorations, getFenceLimits, getFoldStatuses, getScrollStatus, getStateFieldDecorations, getStateFieldScrollStates, getStateFieldsViewDecorations, isFileIgnored, lineDOMatPos, updateBaseStateField, updateInteractions, updateStateField, updateViewPlugin, valueInRange } from "./codemirror/utils";
 import { FillerWidget, FooterWidget, HeaderWidget, LineNumberWidget } from "./codemirror/widgets";
 import { RangeNumber } from "./codemirror/ranges";
 import { fenceScroll } from "./codemirror/stateEffects";
-import { SCROLL_TIMEOUT } from "src/Internal/constants/interface";
-import { PREFIX } from "src/Internal/constants/general";
-import { DATA_PREFIX, SKIP_ATTRIBUTE } from "src/Internal/constants/detecting";
+import { SCROLL_TIMEOUT } from "src/internal/constants/interface";
+import { PREFIX } from "src/internal/constants/general";
+import { DATA_PREFIX, SKIP_ATTRIBUTE } from "src/internal/constants/detecting";
+import { toParseFenceCode } from "src/internal/parsing/fenced";
 
 export function getFenceCodemirrorExtensions(
 	plugin: CodeStylerPlugin,
@@ -253,7 +254,7 @@ function buildFenceCodeDecorations(
 	value: RangeSet<any>,
 	plugin: CodeStylerPlugin,
 ): RangeSet<any> {
-	if (isFileIgnored(state))
+	if (isFileIgnored(state) || !toParseFenceCode(plugin))
 		return Decoration.none;
 
 	let fenceInfo = new FenceInfo({sourcePath: state.field(editorInfoField)?.file?.path ?? ""})
