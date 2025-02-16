@@ -3,7 +3,7 @@ import { EditorState, Extension, Range, RangeSet, StateEffect, StateField, Trans
 import { Decoration, DecorationSet, EditorView, PluginValue, ViewPlugin, ViewUpdate } from "@codemirror/view";
 import { SyntaxNodeRef } from "@lezer/common";
 import { editorInfoField } from "obsidian";
-import { isFenceComment, isFenceEnd, isFenceLine, isFenceStart, updateFenceInfo } from "src/internal/detecting/LivePreview/fenced";
+import { isFenceComment, isFenceEnd, isFenceLine, isFenceStart, updateFenceInfo } from "src/internal/Detecting/LivePreview/fenced";
 import { FenceInfo } from "src/internal/types/decoration";
 import { getLineClasses } from "src/internal/utils/decorating";
 import CodeStylerPlugin from "src/main";

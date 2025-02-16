@@ -8,7 +8,7 @@ import CodeStylerPlugin from "src/main";
 import { areRangesInteracting, getCommentDecorations, getStateFieldDecorations, getStateFieldsViewDecorations, isFileIgnored, updateStateField, updateViewPlugin } from "./codemirror/utils";
 import { FooterWidget, HeaderWidget } from "./codemirror/widgets";
 import { syntaxTree } from "@codemirror/language";
-import { getInlineCodeInfo } from "src/internal/detecting/LivePreview/inline";
+import { getInlineCodeInfo } from "src/internal/Detecting/LivePreview/inline";
 
 export function getInlineCodeMirrorExtensions(
 	plugin: CodeStylerPlugin,
