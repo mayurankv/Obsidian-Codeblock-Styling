@@ -1,0 +1,21 @@
+@mixin active {
+	.markdown-source-view {
+		div.cm-line:not(.cm-embed-block).cs-line .cs-filler {
+			user-select: none;
+			visibility: hidden;
+			padding: 0;
+		}
+	}
+
+	&.cs-unwrap-false {
+		div.cs-line .cs-filler {
+			display: inline;
+		}
+	}
+
+	&.cs-unwrap-inactive {
+		div.cs-line.cm-active .cs-filler {
+				display: inline;
+		}
+	}
+}

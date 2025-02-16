@@ -1,5 +1,5 @@
 //TODO: To remove
-body.cs-plugin {
+@mixin active {
 	//TODO: Testing
 	// --cs-fence-gutter-background-colour: red !important;
 	// --cs-fence-header-background-colour: yellow !important;
@@ -11,7 +11,7 @@ body.cs-plugin {
 // 	z-index: 10
 // }
 
-body.cs-plugin{
+@mixin active {
 	//TODO: To add directly
 	//TODO add: border colours, border sizes, margins and padding and heights and widths
 	--cs-fence-gutter-active-text-colour: var(--code-normal);

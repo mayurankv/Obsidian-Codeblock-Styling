@@ -5,3 +5,9 @@ $prefix: "cs-";
 		@content;
 	}
 }
+
+@mixin active {
+  body.cs-plugin {
+    @content;
+  }
+}

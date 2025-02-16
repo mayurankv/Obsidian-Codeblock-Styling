@@ -1,6 +1,6 @@
 // import { LANGUAGES, OBSIDIAN_THEME_STYLES } from "src/Internal/constants/decoration";
 // import { LANGUAGE_NAMES } from "src/Internal/constants/parsing";
-// import { isCss } from "src/Internal/Decorating/css";
+// import { isCss } from "src/Internal/decorating/css";
 // import { CodeStylerThemeStyles, CodeStylerThemeModeStyles, CodeStylerThemeSettings, Colour } from "src/Internal/types/settings";
 
 function styleThemeColours (themeColours: CodeStylerThemeStyles): string {

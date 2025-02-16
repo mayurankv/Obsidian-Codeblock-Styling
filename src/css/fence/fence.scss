@@ -1,4 +1,4 @@
-body.cs-plugin {
+@mixin active {
 	--cs-language-border-header-colour: var(--cs-fence-header-background-colour);
 	--cs-language-border-separator-colour: var(--cs-fence-header-separator-background-colour);
 	--cs-language-border-gutter-colour: var(--cs-fence-gutter-background-colour);
@@ -261,50 +261,6 @@ body.cs-plugin {
 			}
 		}
 
-		.cs-line-number {
-			background-color: var(--cs-fence-gutter-background-colour);
-			color: var(--cs-fence-gutter-text-colour);
-			font-family: var(--cs-fence-gutter-font-family);
-			font-style: var(--cs-fence-gutter-font-style);
-			font-weight: var(--cs-fence-gutter-font-weight);
-
-			position: sticky;
-			left: 0;
-			user-select: none;
-
-			padding-right: var(--size-4-3);
-			margin-right: var(--size-4-3);
-			border-right: var(--cs-fence-gutter-border-width) solid var(--cs-fence-gutter-border-colour);
-			// box-shadow: calc(var(--size-4-4) * -1) 0px var(--cs-fence-gutter-background-colour), 0px calc(var(--size-4-1) * -1) var(--cs-fence-gutter-background-colour), 0px var(--size-4-4) var(--cs-fence-gutter-background-colour);
-
-			&::before {
-				content: "";
-				position: absolute;
-				top: calc(-1 * var(--size-4-1));
-				bottom: -100%;
-				left: calc(-1 * calc(var(--size-4-4) - var(--cs-fence-gutter-language-border-size)));
-				right: 0;
-				background-color: inherit;
-				z-index: -5;
-				box-shadow: calc(-1 * var(--cs-fence-gutter-language-border-size)) 0 0px var(--cs-language-border-gutter-colour);
-			}
-
-			&::after {
-				content: "";
-				position: absolute;
-				top: 0px;
-				bottom: 0px;
-				width: var(--size-4-3);
-				left: calc(100% + var(--cs-fence-gutter-border-width));
-				right: calc(-1 * var(--size-4-3));
-				// background: linear-gradient(to left, transparent, 50%, var(--cs-fence-background-colour));
-				background: linear-gradient(to left, transparent, var(--cs-fence-fade-gradient-stop), var(--cs-fence-background-colour));
-				// mask-image: linear-gradient(to right, black, transparent);
-				// backdrop-filter: blur(2px);
-				z-index: 10;
-			}
-		}
-
 		div.cs-footer {
 			text-align: center;
 			height: var(--size-4-4);
@@ -342,16 +298,6 @@ body.cs-plugin {
 				// 	padding-left: var(--size-4-2);
 				// 	padding-right: var(--size-4-2);
 				// }
-		}
-
-		.cs-comment {
-			padding: 0;
-		}
-	}
-
-	div.cs-header {
-		button.cs-fold-code-button {
-			// transform:rotate(180deg);
 		}
 	}
 
@@ -512,19 +458,6 @@ body.cs-plugin {
 					// transition-duration: var(--cs-transition-length-fold);
 					// transition-timing-function: ease-in-out;
 
-					> div.cs-line-number {
-						grid-column: 1;
-						text-align: right;
-
-						&.cs-line-numbers-enabled-false {
-							display: none;
-						}
-
-						&.cs-line-numbers-enabled-true {
-							display: block;
-						}
-					}
-
 					> div.cs-line-text {
 						overflow: visible;
 						// overflow: /;
@@ -587,10 +520,6 @@ body.cs-plugin {
 	}
 
 	.markdown-source-view {
-		div.cm-contentContainer {
-			// display: grid;
-		}
-
 		div.cm-embed-block {
 			&:not(.cm-table-widget):has(> .cs-pre-parent) {
 				border-radius: var(--cs-fence-curvature);
@@ -677,26 +606,6 @@ body.cs-plugin {
 				display: none;
 			}
 
-			span.cs-line-number {
-				// background-color: transparent;
-				display: inline-block;
-				height: 100%;
-				// box-shadow: var(--cs-fence-gutter-border-width) 0px purple;
-				// box-shadow: 0px calc(var(--size-4-1) * -1) var(--cs-fence-gutter-background-colour), 0px var(--size-4-1) var(--cs-fence-gutter-background-colour); // calc(var(--size-4-4) * -1) 0px var(--cs-fence-gutter-background-colour),
-				overflow-y: visible;
-				margin-left: calc(-1 * calc(var(--cs-gutter-char-size) + var(--size-4-3) + var(--size-2-1) + var(--size-4-3)));
-				left: calc(-1 * calc(var(--cs-gutter-char-size) + var(--size-4-3) + var(--size-2-1) + var(--size-4-3)));
-				z-index: 10;
-
-				&::before {
-					// box-shadow: none;
-					// box-shadow: calc(-1 * var(--size-4-1)) 0 0px var(--cs-language-border-gutter-colour);
-					z-index: -5;
-					bottom: 0;
-					// content: none;
-				}
-			}
-
 			// span:not(.cs-line-number) {
 			// 	grid-column: 2;
 			// 	grid-row: 1;
@@ -713,12 +622,6 @@ body.cs-plugin {
 					display: inline-flex;
 
 				}
-			}
-
-			span.cs-filler {
-				user-select: none;
-				visibility: hidden;
-				padding: 0;
 			}
 
 			&::-webkit-scrollbar {
@@ -754,63 +657,30 @@ body.cs-plugin {
 
 		}
 	}
-}
 
-body.cs-plugin.cs-line-numbers-enabled-false {
-	.cs-pre-parent {
-		> pre.cs-pre {
-			> code.cs-code {
-				> div.cs-line {
-					> div.cs-line-number {
-						&:not(.cs-line-numbers-enabled-true) {
-							display: none;
-						}
-					}
+	&.cs-unwrap-false {
+		.cs-pre-parent {
+			> pre.cs-pre {
+				> code.cs-code:not([cs-data-wrap]) {
+					width: unset;
+					padding-right: 0;
 				}
 			}
 		}
 	}
-}
 
-body.cs-plugin.cs-unwrap-false {
-	.cs-pre-parent {
-		> pre.cs-pre {
-			> code.cs-code:not([cs-data-wrap]) {
-				width: unset;
-				padding-right: 0;
+	&.cs-unwrap-inactive {
+		.cs-pre-parent {
+			> pre.cs-pre {
+				> code.cs-code:not([cs-data-wrap]):active {
+					width: unset;
+					padding-right: 0;
+				}
 			}
 		}
-	}
 
-	div.cs-line {
-		.cs-filler {
-			display: inline;
+		div.cs-line.cm-active {
+			white-space: pre-wrap;
 		}
 	}
-}
-
-body.cs-plugin.cs-unwrap-inactive {
-	.cs-pre-parent {
-		> pre.cs-pre {
-			> code.cs-code:not([cs-data-wrap]):active {
-				width: unset;
-				padding-right: 0;
-			}
-		}
-	}
-
-	div.cs-line.cm-active {
-		white-space: pre-wrap;
-
-		.cs-filler {
-			display: inline;
-		}
-	}
-}
-
-//!====================================================================
-//! Temp
-div.HyperMD-codeblock.cm-line {
-	// white-space: nowrap;
-	// overflow-x: auto;
 }

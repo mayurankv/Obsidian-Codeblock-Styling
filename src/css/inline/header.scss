@@ -1,4 +1,4 @@
-body.cs-plugin {
+@mixin active {
 	span.cm-formatting.cm-inline-code ~ span.cs-header {
 		border-radius: 0px !important;
 	}

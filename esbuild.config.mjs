@@ -18,10 +18,10 @@ const context = await esbuild.context({
 	},
 	entryPoints: [
 		"src/main.ts",
-		"src/css/styles.scss",
+		"src/styles.scss",
 	],
 	bundle: true,
-	// minify: true,
+	minify: prod,
 	external: [
 		"obsidian",
 		"electron",
@@ -36,7 +36,8 @@ const context = await esbuild.context({
 		"@lezer/common",
 		"@lezer/highlight",
 		"@lezer/lr",
-		...builtins],
+		...builtins,
+	],
 	format: "cjs",
 	target: "es2018",
 	logLevel: "info",

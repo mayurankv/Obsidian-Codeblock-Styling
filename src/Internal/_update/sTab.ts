@@ -4,7 +4,7 @@
 // import Pickr from "@simonwep/pickr";
 // import { ColorTranslator } from "colortranslator";
 
-// import { getColour } from "src/Internal/Decorating/css";
+// import { getColour } from "src/Internal/decorating/css";
 // import CodeStylerPlugin from "src/main";
 // import { Colour } from "src/Internal/types/decoration";
 // import { Display } from "src/Internal/types/settings";

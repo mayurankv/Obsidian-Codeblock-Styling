@@ -1,0 +1,8 @@
+@mixin active {
+	.cs-pre-parent,
+	.markdown-source-view *:not(.cm-embed-block) > {
+		.cs-comment {
+			padding: 0;
+		}
+	}
+}
