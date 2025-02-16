@@ -1,4 +1,4 @@
-@mixin active {
+@include active {
 	&.theme-light {
 		code.cs-shiki:not([class*=blur]):not(.cs-shiki-dark):not(.cs-shiki-light),
 		code.cs-shiki:not([class*=blur]):not(.cs-shiki-dark):not(.cs-shiki-light) > span:not(.cs-header):not(.cs-footer) > span:not(.cs-icon-container) {

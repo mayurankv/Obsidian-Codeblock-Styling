@@ -1,4 +1,6 @@
-@mixin active {
+@use "mixins.scss";
+
+@include mixins.active {
 	.markdown-rendered :not(pre) > code:not([class*="blur"]) {
 		border-radius: var(--cs-inline-curvature);
 		color: var(--cs-inline-text-colour);

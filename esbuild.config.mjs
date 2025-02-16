@@ -20,6 +20,7 @@ const context = await esbuild.context({
 		"src/main.ts",
 		"src/styles.scss",
 	],
+	outdir: "./",
 	bundle: true,
 	minify: prod,
 	external: [
@@ -43,7 +44,6 @@ const context = await esbuild.context({
 	logLevel: "info",
 	sourcemap: prod ? false : "inline",
 	treeShaking: true,
-	outdir: "./",
 	plugins: [
 		sassPlugin({
 			type: "css",

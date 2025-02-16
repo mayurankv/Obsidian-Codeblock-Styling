@@ -1,4 +1,6 @@
-@mixin active {
+@use "mixins.scss";
+
+@include mixins.active {
 	span.cm-formatting.cm-inline-code ~ span.cs-header {
 		border-radius: 0px !important;
 	}

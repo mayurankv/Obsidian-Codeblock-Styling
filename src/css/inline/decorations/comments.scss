@@ -1,4 +1,6 @@
-@mixin active {
+@use "mixins.scss";
+
+@include mixins.active {
 	span.cm-comment {
 		span.cs-comment {
 			font-size: inherit;

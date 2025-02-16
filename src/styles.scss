@@ -1,8 +1,8 @@
-@import url("css/scss/init.scss");
+@use "css/scss/init.scss" as scss;
 
-@import url("css/fence/init.scss");
-@import url("css/inline/init.scss");
-@import url("css/settings/init.scss");
-@import url("css/other/init.scss");
+@use "css/fence/init.scss" as fence;
+@use "css/inline/init.scss" as inline;
+@use "css/settings/init.scss" as settings;
+@use "css/other/init.scss" as other;
 
-@import url("css/plugins/init.scss");
+@use "css/plugins/init.scss" as plugins;

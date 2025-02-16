@@ -1,4 +1,6 @@
-@mixin active {
+@use "mixins.scss";
+
+@include mixins.active {
 	.markdown-source-view {
 		div.cm-line:not(.cm-embed-block).cs-line .cs-filler {
 			user-select: none;

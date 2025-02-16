@@ -2,7 +2,7 @@ div.print {
 	--line-wrapping: pre-wrap !important;
 }
 
-@mixin active {
+@include active {
 	div.print {
 		pre.code-styler-pre {
 			code {

@@ -1,4 +1,4 @@
-@mixin active {
+@include active {
 	.cs-pre-parent,
 	.markdown-source-view *:not(.cm-embed-block) > {
 		.cs-line-number {

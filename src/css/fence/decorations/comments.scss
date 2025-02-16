@@ -1,4 +1,6 @@
-@mixin active {
+@use "mixins.scss";
+
+@include mixins.active {
 	.cs-pre-parent,
 	.markdown-source-view *:not(.cm-embed-block) > {
 		.cs-comment {

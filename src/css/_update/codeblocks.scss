@@ -24,7 +24,7 @@ body {
 
 }
 
-@mixin active {
+@include active {
 	pre.cs-pre {
 		[class*='language-'] {
 			background: linear-gradient(90deg, var(--language-border-colour), var(--language-border-colour) var(--language-border-width), var(--code-styler-codeblock-background-colour) var(--language-border-width), var(--code-styler-codeblock-background-colour) 100%), var(--code-styler-codeblock-background-colour) !important;

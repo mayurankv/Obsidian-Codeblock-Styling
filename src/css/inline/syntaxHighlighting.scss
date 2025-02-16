@@ -1,4 +1,6 @@
-@mixin active {
+@use "mixins.scss";
+
+@include mixins.active {
 	span.cs-parameters {
 		color: var(--cs-inline-parameters-text-colour);
 		font-weight: var(--cs-inline-parameters-font-weight);

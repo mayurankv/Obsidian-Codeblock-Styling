@@ -26,6 +26,7 @@
 		"eslint-plugin-json": "^4.0.1",
 		"obsidian": "latest",
 		"sass": "^1.83.4",
+		"sass-migrator": "^2.3.1",
 		"stylelint": "^16.14.1",
 		"stylelint-config-idiomatic-order": "^10.0.0",
 		"stylelint-config-standard": "^37.0.0",
@@ -64,7 +65,7 @@
 	},
 	"contributors": [
 		"Mayuran Visakan <mayuran.k.v@gmail.com>",
-		"mugiwara85 <65603765+mugiwara85@users.noreply.github.com>",
+		"mugiwara85 <65603765+mugiwara85@importrs.noreply.github.com>",
 		"Zsolt Szalai <kampimester@gmail.com>",
 		"Dimava <dimava2@ya.ru>",
 		"Michael Naumov <mnaoumov@gmail.com>"

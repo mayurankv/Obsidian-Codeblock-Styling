@@ -1,6 +1,6 @@
-@import url("header.scss");
-@import url("footer.scss");
-@import url("spacing.scss");
-@import url("styling.scss");
-@import url("syntaxHighlighting.scss");
-@import url("decorations/init.scss");
+@use "header.scss";
+@use "footer.scss";
+@use "spacing.scss";
+@use "styling.scss";
+@use "syntaxHighlighting.scss";
+@use "decorations/init.scss";

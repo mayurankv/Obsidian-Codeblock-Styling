@@ -1,4 +1,4 @@
-@mixin active {
+@include active {
 	--cs-language-border-header-colour: var(--cs-fence-header-background-colour);
 	--cs-language-border-separator-colour: var(--cs-fence-header-separator-background-colour);
 	--cs-language-border-gutter-colour: var(--cs-fence-gutter-background-colour);
